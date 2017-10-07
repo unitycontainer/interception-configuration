@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net47</TargetFramework>
+    <IsPackable>false</IsPackable>
+    <RootNamespace>Unity.Interception.Tests</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.3.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="1.1.18" />
+    <PackageReference Include="MSTest.TestFramework" Version="1.1.18" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ConfigFiles\InterceptionInjectionMembers.config" />
+    <None Remove="ConfigFiles\InterceptorsThroughContainerElementExtension.config" />
+    <None Remove="ConfigFiles\Policies.config" />
+    <None Remove="ConfigFiles\SectionExtensionBasics.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="ConfigFiles\InterceptionInjectionMembers.config" />
+    <EmbeddedResource Include="ConfigFiles\InterceptorsThroughContainerElementExtension.config" />
+    <EmbeddedResource Include="ConfigFiles\Policies.config" />
+    <EmbeddedResource Include="ConfigFiles\SectionExtensionBasics.config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Configuration\src\Unity.Configuration.csproj" />
+    <ProjectReference Include="..\..\Interception\src\Unity.Interception.csproj" />
+    <ProjectReference Include="..\..\Unity\src\Unity.Container.csproj" />
+    <ProjectReference Include="..\src\Unity.Interception.Configuration.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Configuration" />
+  </ItemGroup>
+
+</Project>
