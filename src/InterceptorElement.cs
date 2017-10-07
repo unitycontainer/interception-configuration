@@ -10,8 +10,8 @@ using System.Threading;
 using System.Xml;
 using Microsoft.Practices.Unity.Configuration;
 using Microsoft.Practices.Unity.Configuration.ConfigurationHelpers;
-using Microsoft.Practices.Unity.InterceptionExtension.Configuration.Properties;
 using Microsoft.Practices.Unity.Utility;
+using Unity.Interception.Configuration.Properties;
 
 namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration
 {

@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CannotCreateInterceptorRegistrationElement" xml:space="preserve">
     <value>The abstract type InterceptorRegistrationElement cannot be created. Please create a concrete instance.</value>
@@ -130,7 +130,7 @@
     <value>The type name or alias {0} could not be resolved. Please check your configuration file and verify this type name.</value>
   </data>
   <data name="ExceptionCannotCreateInstance" xml:space="preserve">
-    <value>Cannot create instance of type {0} with a default constructor.</value>
+    <value>Cannot create instance of type {0} with a default constructor. </value>
   </data>
   <data name="ExceptionResolvedTypeNotCompatible" xml:space="preserve">
     <value>The type name {0} resolved to type {1} is not compatible with the required type {2}.</value>
