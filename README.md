@@ -1,1 +1,1 @@
-# interception.configuration
+# Interception Configuration
