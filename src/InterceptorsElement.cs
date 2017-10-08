@@ -8,6 +8,7 @@ using System.Text;
 using System.Xml;
 using Microsoft.Practices.Unity.Configuration;
 using Microsoft.Practices.Unity.Configuration.ConfigurationHelpers;
+using Unity;
 
 namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration
 {

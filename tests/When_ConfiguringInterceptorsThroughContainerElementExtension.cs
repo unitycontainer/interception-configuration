@@ -7,6 +7,7 @@ using Microsoft.Practices.Unity.InterceptionExtension.Configuration.Tests.TestOb
 using Microsoft.Practices.Unity.TestSupport;
 using Microsoft.Practices.Unity.TestSupport.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Unity;
 
 namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration.Tests
 {
