@@ -7,7 +7,6 @@ using System.Globalization;
 using System.Xml;
 using Microsoft.Practices.Unity.Configuration;
 using Microsoft.Practices.Unity.Configuration.ConfigurationHelpers;
-using Microsoft.Practices.Unity.Utility;
 using Unity;
 using Unity.Interception.Configuration.Properties;
 using Unity.Registration;
@@ -98,8 +97,7 @@ namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration
             Justification = "Validation done by Guard class")]
         public override void SerializeContent(XmlWriter writer)
         {
-            Guard.ArgumentNotNull(writer, "writer");
-            writer.WriteAttributeIfNotEmpty(NamePropertyName, this.Name);
+            (writer ?? throw new ArgumentNullException(nameof(writer))).WriteAttributeIfNotEmpty(NamePropertyName, this.Name);
             writer.WriteAttributeIfNotEmpty(TypeNamePropertyName, this.TypeName);
             if (this.IsDefaultForType)
             {

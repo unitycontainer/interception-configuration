@@ -80,9 +80,7 @@ namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration
             Justification = "Validation done by Guard class")]
         public override void SerializeContent(XmlWriter writer)
         {
-            Microsoft.Practices.Unity.Utility.Guard.ArgumentNotNull(writer, "writer");
-
-            writer.WriteAttributeString(TypeNamePropertyName, this.TypeName);
+            (writer ?? throw new ArgumentNullException(nameof(writer))).WriteAttributeString(TypeNamePropertyName, this.TypeName);
             writer.WriteAttributeIfNotEmpty(ValuePropertyName, this.Value);
             writer.WriteAttributeIfNotEmpty(TypeConverterTypeNamePropertyName, this.TypeConverterTypeName);
 

@@ -1,5 +1,6 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
 
+using System;
 using System.Configuration;
 using System.Xml;
 using Microsoft.Practices.Unity.Configuration.ConfigurationHelpers;
@@ -90,9 +91,7 @@ namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration
             Justification = "Validation done by Guard class")]
         public override void SerializeContent(XmlWriter writer)
         {
-            Microsoft.Practices.Unity.Utility.Guard.ArgumentNotNull(writer, "writer");
-
-            writer.WriteAttributeString(NamePropertyName, this.Name);
+            (writer ?? throw new ArgumentNullException(nameof(writer))).WriteAttributeString(NamePropertyName, this.Name);
             foreach (var matchingRuleElement in this.MatchingRules)
             {
                 writer.WriteElement("matchingRule", matchingRuleElement.SerializeContent);

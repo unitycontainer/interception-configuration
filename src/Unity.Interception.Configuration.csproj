@@ -32,7 +32,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Configuration\src\Unity.Configuration.csproj" />
     <ProjectReference Include="..\..\Interception\src\Unity.Interception.csproj" />
-    <ProjectReference Include="..\..\Unity\src\Unity.Container.csproj" />
+    <ProjectReference Include="..\..\Abstractions\src\Unity.Abstractions.csproj" />
   </ItemGroup>
 
   <ItemGroup>
