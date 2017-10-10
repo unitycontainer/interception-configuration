@@ -123,18 +123,18 @@ namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration.Tests
             Assert.AreEqual(2, matchingRuleRegistrations.Count());
             Assert.AreEqual(
                 1,
-                matchingRuleRegistrations.Where(r => r.LifetimeManagerType == typeof(ContainerControlledLifetimeManager)).Count());
+                matchingRuleRegistrations.Count(r => r.LifetimeManager?.GetType() == typeof(ContainerControlledLifetimeManager)));
             Assert.AreEqual(
                 1,
-                matchingRuleRegistrations.Where(r => r.LifetimeManagerType == typeof(TransientLifetimeManager)).Count());
+                matchingRuleRegistrations.Count(r => r.LifetimeManager?.GetType() == typeof(TransientLifetimeManager)));
 
             Assert.AreEqual(2, callHandlerRegistrations.Count());
             Assert.AreEqual(
                 1,
-                callHandlerRegistrations.Where(r => r.LifetimeManagerType == typeof(ContainerControlledLifetimeManager)).Count());
+                callHandlerRegistrations.Count(r => r.LifetimeManager?.GetType() == typeof(ContainerControlledLifetimeManager)));
             Assert.AreEqual(
                 1,
-                callHandlerRegistrations.Where(r => r.LifetimeManagerType == typeof(TransientLifetimeManager)).Count());
+                callHandlerRegistrations.Count(r => r.LifetimeManager?.GetType() == typeof(TransientLifetimeManager)));
         }
 
         [TestMethod]
