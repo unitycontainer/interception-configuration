@@ -13,17 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ConfigFiles\InterceptionInjectionMembers.config" />
-    <None Remove="ConfigFiles\InterceptorsThroughContainerElementExtension.config" />
-    <None Remove="ConfigFiles\Policies.config" />
-    <None Remove="ConfigFiles\SectionExtensionBasics.config" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="ConfigFiles\InterceptionInjectionMembers.config" />
-    <EmbeddedResource Include="ConfigFiles\InterceptorsThroughContainerElementExtension.config" />
-    <EmbeddedResource Include="ConfigFiles\Policies.config" />
-    <EmbeddedResource Include="ConfigFiles\SectionExtensionBasics.config" />
+    <None Remove="ConfigFiles\*.config" />
+    <EmbeddedResource Include="ConfigFiles\*.config" />
   </ItemGroup>
 
   <ItemGroup>
