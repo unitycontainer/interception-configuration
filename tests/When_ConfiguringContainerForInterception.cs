@@ -11,6 +11,9 @@ using Microsoft.Practices.Unity.TestSupport;
 using Microsoft.Practices.Unity.TestSupport.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Unity;
+using Unity.Interception.ContainerIntegration;
+using Unity.Interception.InterceptionBehaviors;
+using Unity.Interception.Interceptors.TypeInterceptors.VirtualMethodInterception;
 
 namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration.Tests
 {

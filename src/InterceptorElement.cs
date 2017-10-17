@@ -10,6 +10,8 @@ using Microsoft.Practices.Unity.Configuration;
 using Microsoft.Practices.Unity.Configuration.ConfigurationHelpers;
 using Unity;
 using Unity.Interception.Configuration.Properties;
+using Unity.Interception.ContainerIntegration;
+using Unity.Interception.Interceptors;
 using Unity.Registration;
 
 namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration

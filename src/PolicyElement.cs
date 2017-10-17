@@ -5,6 +5,7 @@ using System.Configuration;
 using System.Xml;
 using Microsoft.Practices.Unity.Configuration.ConfigurationHelpers;
 using Unity;
+using Unity.Interception.ContainerIntegration;
 
 namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration
 {

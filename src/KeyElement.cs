@@ -6,6 +6,10 @@ using System.Xml;
 using Microsoft.Practices.Unity.Configuration;
 using Microsoft.Practices.Unity.Configuration.ConfigurationHelpers;
 using Unity;
+using Unity.Interception.ContainerIntegration;
+using Unity.Interception.Interceptors;
+using Unity.Interception.Interceptors.InstanceInterceptors;
+using Unity.Interception.Interceptors.TypeInterceptors;
 
 namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration
 {

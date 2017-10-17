@@ -1,6 +1,14 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
 
 using Microsoft.Practices.Unity.Configuration;
+using Unity.Interception.ContainerIntegration;
+using Unity.Interception.InterceptionBehaviors;
+using Unity.Interception.Interceptors.InstanceInterceptors.InterfaceInterception;
+using Unity.Interception.Interceptors.InstanceInterceptors.TransparentProxyInterception;
+using Unity.Interception.Interceptors.TypeInterceptors.VirtualMethodInterception;
+using Unity.Interception.PolicyInjection;
+using Unity.Interception.PolicyInjection.MatchingRules;
+using Unity.Interception.PolicyInjection.Pipeline;
 
 namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration
 {

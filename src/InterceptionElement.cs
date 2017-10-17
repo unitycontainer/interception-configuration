@@ -2,10 +2,10 @@
 
 using System.Configuration;
 using System.Xml;
-using Microsoft.Practices.ObjectBuilder2;
 using Microsoft.Practices.Unity.Configuration;
 using Microsoft.Practices.Unity.Configuration.ConfigurationHelpers;
 using Unity;
+using Unity.Interception.Utilities;
 
 namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration
 {

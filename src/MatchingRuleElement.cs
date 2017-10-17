@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Practices.Unity.Configuration.ConfigurationHelpers;
 using Unity;
+using Unity.Interception.ContainerIntegration;
+using Unity.Interception.PolicyInjection.MatchingRules;
 using Unity.Lifetime;
 using Unity.Registration;
 

@@ -1,6 +1,10 @@
 ﻿// Copyright (c) Microsoft Corporation. All rights reserved. See License.txt in the project root for license information.
 
 using Unity;
+using Unity.Interception.ContainerIntegration;
+using Unity.Interception.Interceptors;
+using Unity.Interception.Interceptors.InstanceInterceptors;
+using Unity.Interception.Interceptors.TypeInterceptors;
 
 namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration
 {
