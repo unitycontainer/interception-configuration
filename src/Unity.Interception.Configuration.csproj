@@ -62,16 +62,36 @@
   </PropertyGroup>
   
 
-  <ItemGroup Condition="'$(Configuration)'!='Release'">
-    <ProjectReference Include="..\..\Abstractions\src\Unity.Abstractions.csproj" />
-    <ProjectReference Include="..\..\Configuration\src\Unity.Configuration.csproj" />
-    <ProjectReference Include="..\..\Interception\src\Unity.Interception.csproj" />
+  <PropertyGroup>
+    <UnityAbstractions>$(SolutionDir)\Abstractions\src\Unity.Abstractions.csproj</UnityAbstractions>
+    <UnityConfiguration>$(SolutionDir)\Configuration\src\Unity.Configuration.csproj</UnityConfiguration>
+    <UnityInterception>$(SolutionDir)\Interception\src\Unity.Interception.csproj</UnityInterception>
+  </PropertyGroup>
+  
+
+  <ItemGroup Condition="Exists('$(UnityAbstractions)')">
+    <ProjectReference Include="$(UnityAbstractions)" />
   </ItemGroup>
 
-  <ItemGroup Condition=" '$(Configuration)' == 'Release' ">
-    <PackageReference Include="Unity.Abstractions" Version="2.0.0" />
-    <PackageReference Include="Unity.Interception" Version="5.0.1" />
+  <ItemGroup Condition="Exists('$(UnityConfiguration)')">
+    <ProjectReference Include="$(UnityConfiguration)" />
+  </ItemGroup>
+
+  <ItemGroup Condition="Exists('$(UnityInterception)')">
+    <ProjectReference Include="$(UnityInterception)" />
+  </ItemGroup>
+
+
+  <ItemGroup Condition="!Exists('$(UnityAbstractions)')">
+    <PackageReference Include="Unity.Abstractions" Version="2.0.1" />
+  </ItemGroup>
+
+  <ItemGroup Condition="!Exists('$(UnityConfiguration)')">
     <PackageReference Include="Unity.Configuration" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="!Exists('$(UnityInterception)')">
+    <PackageReference Include="Unity.Interception" Version="5.0.1" />
   </ItemGroup>
 
 </Project>
