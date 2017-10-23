@@ -27,10 +27,10 @@
 
 
   <PropertyGroup>
-    <UnityAbstractions>$(SolutionDir)\Abstractions\src\Unity.Abstractions.csproj</UnityAbstractions>
-    <UnityConfiguration>$(SolutionDir)\Configuration\src\Unity.Configuration.csproj</UnityConfiguration>
-    <UnityInterception>$(SolutionDir)\Interception\src\Unity.Interception.csproj</UnityInterception>
-    <UnityContainer>$(SolutionDir)\Container\src\Unity.Container.csproj</UnityContainer>
+    <UnityAbstractions>..\..\Abstractions\src\Unity.Abstractions.csproj</UnityAbstractions>
+    <UnityConfiguration>..\..\Configuration\src\Unity.Configuration.csproj</UnityConfiguration>
+    <UnityInterception>..\..\Interception\src\Unity.Interception.csproj</UnityInterception>
+    <UnityContainer>..\..\Container\src\Unity.Container.csproj</UnityContainer>
   </PropertyGroup>
   
 
