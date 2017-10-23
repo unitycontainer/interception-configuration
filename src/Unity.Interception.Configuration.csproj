@@ -15,7 +15,6 @@
     <PackageId>Unity.Interception.Configuration</PackageId>
     <Authors>Microsoft.Practices.Unity</Authors>
     <Company>Microsoft.Practices.Unity</Company>
-    <Configurations>Debug;Release;Package</Configurations>
   </PropertyGroup>
   
   <PropertyGroup>
@@ -52,7 +51,7 @@
   <PropertyGroup Condition="'$(Configuration)'=='Package'">
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <TargetFrameworks>net47;net45;</TargetFrameworks>
-    <OutputPath>$(SolutionDir)\lib\</OutputPath>
+    <OutputPath>$(SolutionDir)lib</OutputPath>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -63,9 +62,9 @@
   
 
   <PropertyGroup>
-    <UnityAbstractions>$(SolutionDir)\Abstractions\src\Unity.Abstractions.csproj</UnityAbstractions>
-    <UnityConfiguration>$(SolutionDir)\Configuration\src\Unity.Configuration.csproj</UnityConfiguration>
-    <UnityInterception>$(SolutionDir)\Interception\src\Unity.Interception.csproj</UnityInterception>
+    <UnityAbstractions>..\..\Abstractions\src\Unity.Abstractions.csproj</UnityAbstractions>
+    <UnityConfiguration>..\..\Configuration\src\Unity.Configuration.csproj</UnityConfiguration>
+    <UnityInterception>..\..\Interception\src\Unity.Interception.csproj</UnityInterception>
   </PropertyGroup>
   
 
