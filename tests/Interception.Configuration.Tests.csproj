@@ -52,19 +52,19 @@
 
 
   <ItemGroup Condition="!Exists('$(UnityAbstractions)')">
-    <PackageReference Include="Unity.Abstractions" Version="2.0.1" />
+    <PackageReference Include="Unity.Abstractions" Version="2.0.2" />
   </ItemGroup>
 
   <ItemGroup Condition="!Exists('$(UnityConfiguration)')">
-    <PackageReference Include="Unity.Configuration" Version="5.0.0" />
+    <PackageReference Include="Unity.Configuration" Version="5.0.1" />
   </ItemGroup>
 
   <ItemGroup Condition="!Exists('$(UnityInterception)')">
-    <PackageReference Include="Unity.Interception" Version="5.0.1" />
+    <PackageReference Include="Unity.Interception" Version="5.0.2" />
   </ItemGroup>
 
   <ItemGroup Condition="!Exists('$(UnityContainer)')">
-    <PackageReference Include="Unity.Container" Version="5.0.0" />
+    <PackageReference Include="Unity.Container" Version="5.0.1" />
   </ItemGroup>
 
 

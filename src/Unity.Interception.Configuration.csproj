@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <Description>Unity Interception Configuration</Description>
-    <Version>5.0.1</Version>
+    <Version>5.0.2</Version>
     <AssemblyVersion>5.0.0.0</AssemblyVersion>
     <FileVersion>5.0.0.0</FileVersion>
     <Copyright>Copyright © Microsoft 2008</Copyright>
@@ -82,15 +82,15 @@
 
 
   <ItemGroup Condition="!Exists('$(UnityAbstractions)')">
-    <PackageReference Include="Unity.Abstractions" Version="2.0.1" />
+    <PackageReference Include="Unity.Abstractions" Version="2.0.2" />
   </ItemGroup>
 
   <ItemGroup Condition="!Exists('$(UnityConfiguration)')">
-    <PackageReference Include="Unity.Configuration" Version="5.0.0" />
+    <PackageReference Include="Unity.Configuration" Version="5.0.1" />
   </ItemGroup>
 
   <ItemGroup Condition="!Exists('$(UnityInterception)')">
-    <PackageReference Include="Unity.Interception" Version="5.0.1" />
+    <PackageReference Include="Unity.Interception" Version="5.0.2" />
   </ItemGroup>
 
 </Project>
