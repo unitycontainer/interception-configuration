@@ -1,9 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <Version>5.0.3</Version>
-    <PackageReleaseNotes>This package is compatible with .NET 4.5, and 4.7 frameworks.</PackageReleaseNotes>
-  </PropertyGroup>
+  <Import Project="..\package.props" />
 
   <PropertyGroup>
     <FileVersion>$(Version).0</FileVersion>
@@ -77,15 +74,15 @@
 
 
   <ItemGroup Condition="!Exists('$(UnityAbstractions)')">
-    <PackageReference Include="Unity.Abstractions" Version="2.0.2" />
+    <PackageReference Include="Unity.Abstractions" Version="$(UnityAbstractionsVersion)" />
   </ItemGroup>
 
   <ItemGroup Condition="!Exists('$(UnityConfiguration)')">
-    <PackageReference Include="Unity.Configuration" Version="5.0.1" />
+    <PackageReference Include="Unity.Configuration" Version="$(UnityConfigurationVersion)" />
   </ItemGroup>
 
   <ItemGroup Condition="!Exists('$(UnityInterception)')">
-    <PackageReference Include="Unity.Interception" Version="5.0.2" />
+    <PackageReference Include="Unity.Interception" Version="$(UnityInterceptionVersion)" />
   </ItemGroup>
 
 </Project>

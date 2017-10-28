@@ -1,5 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <Import Project="..\package.props" />
+
   <PropertyGroup>
     <TargetFramework>net47</TargetFramework>
     <IsPackable>false</IsPackable>
@@ -52,19 +54,19 @@
 
 
   <ItemGroup Condition="!Exists('$(UnityAbstractions)')">
-    <PackageReference Include="Unity.Abstractions" Version="2.0.2" />
+    <PackageReference Include="Unity.Abstractions" Version="$(UnityAbstractionsVersion)" />
   </ItemGroup>
 
   <ItemGroup Condition="!Exists('$(UnityConfiguration)')">
-    <PackageReference Include="Unity.Configuration" Version="5.0.1" />
+    <PackageReference Include="Unity.Configuration" Version="$(UnityConfigurationVersion)" />
   </ItemGroup>
 
   <ItemGroup Condition="!Exists('$(UnityInterception)')">
-    <PackageReference Include="Unity.Interception" Version="5.0.2" />
+    <PackageReference Include="Unity.Interception" Version="$(UnityInterceptionVersion)" />
   </ItemGroup>
 
   <ItemGroup Condition="!Exists('$(UnityContainer)')">
-    <PackageReference Include="Unity.Container" Version="5.0.1" />
+    <PackageReference Include="Unity.Container" Version="$(UnityContainerVersion)" />
   </ItemGroup>
 
 
