@@ -8,8 +8,8 @@
   <PropertyGroup>
     <UnityAbstractionsVersion>2.3.*</UnityAbstractionsVersion>
     <UnityContainerVersion>5.3.*</UnityContainerVersion>
-    <UnityInterceptionVersion>5.0.*</UnityInterceptionVersion>
-    <UnityConfigurationVersion>5.0.*</UnityConfigurationVersion>
+    <UnityInterceptionVersion>5.*</UnityInterceptionVersion>
+    <UnityConfigurationVersion>5.*</UnityConfigurationVersion>
   </PropertyGroup>
 
 </Project>
