@@ -50,13 +50,10 @@ namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration.Tests
         {
             var container = this.ConfiguredContainer("configuringInterceptorThroughConfigurationFile");
 
-            var callCount = new CallCountInterceptionBehavior();
-            container.RegisterType<Interceptable>(new InterceptionBehavior(callCount));
-
             var instance = container.Resolve<Interceptable>();
             instance.DoSomething();
 
-            Assert.AreEqual(1, callCount.CallCount);
+            Assert.AreEqual(1, GlobalCountInterceptionBehavior.Calls.Values.First());
         }
 
         [TestMethod]
@@ -64,15 +61,10 @@ namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration.Tests
         {
             IUnityContainer container = this.ConfiguredContainer("configuringAdditionalInterfaceThroughConfigurationFile");
 
-            var callCount = new CallCountInterceptionBehavior();
-            container.RegisterType<Interceptable>(
-                new InterceptionBehavior(callCount),
-                new Interceptor(new VirtualMethodInterceptor()));
-
             var instance = container.Resolve<Interceptable>();
             instance.DoSomething();
 
-            Assert.AreEqual(1, callCount.CallCount);
+            Assert.AreEqual(1, GlobalCountInterceptionBehavior.Calls.Values.First());
             Assert.IsTrue(instance is IServiceProvider);
         }
 
@@ -81,8 +73,6 @@ namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration.Tests
         {
             IUnityContainer container =
                 this.ConfiguredContainer("configuringInterceptionBehaviorWithTypeThroughConfigurationFile");
-
-            container.RegisterType<Interceptable>(new Interceptor(new VirtualMethodInterceptor()));
 
             var instance = container.Resolve<Interceptable>();
             instance.DoSomething();
@@ -93,13 +83,12 @@ namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration.Tests
         [TestMethod]
         public void Then_CanConfigureNamedResolvedBehavior()
         {
-            IUnityContainer container = this.ConfiguredContainer("canConfigureNamedBehavior")
-                .RegisterType<Interceptable>(new Interceptor(new VirtualMethodInterceptor()));
+            IUnityContainer container = this.ConfiguredContainer("canConfigureNamedBehavior");
 
             var instance = container.Resolve<Interceptable>();
             instance.DoSomething();
 
-            Assert.AreEqual(1, GlobalCountInterceptionBehavior.Calls["fixed"]);
+            Assert.AreEqual(1, GlobalCountInterceptionBehavior.Calls.Values.First());
         }
 
         [TestMethod]
@@ -108,7 +97,6 @@ namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration.Tests
             var callCount = new CallCountInterceptionBehavior();
 
             IUnityContainer container = this.ConfiguredContainer("canConfigureBehaviorWithNameOnly")
-                .RegisterType<Interceptable>(new Interceptor(new VirtualMethodInterceptor()))
                 .RegisterInstance<IInterceptionBehavior>("call count", callCount);
 
             var instance = container.Resolve<Interceptable>();
