@@ -4,6 +4,7 @@ using Microsoft.Practices.Unity.Configuration;
 using Unity.Interception.ContainerIntegration;
 using Unity.Interception.InterceptionBehaviors;
 using Unity.Interception.Interceptors.InstanceInterceptors.InterfaceInterception;
+using Unity.Interception.Interceptors.InstanceInterceptors.TransparentProxyInterception;
 using Unity.Interception.Interceptors.TypeInterceptors.VirtualMethodInterception;
 using Unity.Interception.PolicyInjection;
 using Unity.Interception.PolicyInjection.MatchingRules;
@@ -57,6 +58,7 @@ namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration
 
             context.AddAlias<VirtualMethodInterceptor>("VirtualMethodInterceptor");
             context.AddAlias<InterfaceInterceptor>("InterfaceInterceptor");
+            context.AddAlias<TransparentProxyInterceptor>("TransparentProxyInterceptor");
 
             context.AddAlias<IInterceptionBehavior>("IInterceptionBehavior");
             context.AddAlias<PolicyInjectionBehavior>("PolicyInjectionBehavior");
