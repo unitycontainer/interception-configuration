@@ -1,6 +1,4 @@
-﻿
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Microsoft.Practices.Unity.TestSupport;
 using Unity.Builder;
@@ -10,6 +8,7 @@ using Unity.Exceptions;
 using Unity.Lifetime;
 using Unity.Policy;
 using Unity.Resolution;
+using Unity.Storage;
 using Unity.Strategy;
 using Unity.Utility;
 
