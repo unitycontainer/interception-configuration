@@ -1,17 +1,15 @@
-﻿
-
+﻿using Microsoft.Practices.Unity.Configuration;
+using Microsoft.Practices.Unity.Configuration.ConfigurationHelpers;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Globalization;
 using System.Xml;
-using Microsoft.Practices.Unity.Configuration;
-using Microsoft.Practices.Unity.Configuration.ConfigurationHelpers;
 using Unity;
+using Unity.Injection;
 using Unity.Interception.Configuration.Properties;
 using Unity.Interception.ContainerIntegration;
 using Unity.Interception.InterceptionBehaviors;
-using Unity.Registration;
 
 namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration
 {

@@ -1,13 +1,11 @@
-﻿
-
+﻿using Microsoft.Practices.Unity.Configuration.ConfigurationHelpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.Practices.Unity.Configuration.ConfigurationHelpers;
 using Unity;
+using Unity.Injection;
 using Unity.Interception.ContainerIntegration;
 using Unity.Interception.PolicyInjection.Pipeline;
-using Unity.Registration;
 
 namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration
 {
