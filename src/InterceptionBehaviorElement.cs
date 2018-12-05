@@ -6,7 +6,6 @@ using System.Configuration;
 using System.Globalization;
 using System.Xml;
 using Unity;
-using Unity.Injection;
 using Unity.Interception.Configuration.Properties;
 using Unity.Interception.ContainerIntegration;
 using Unity.Interception.InterceptionBehaviors;
