@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using Unity;
+using Unity.Injection;
 using Unity.Interception.PolicyInjection;
 
 namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration
