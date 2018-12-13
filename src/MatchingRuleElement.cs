@@ -24,7 +24,7 @@ namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration
             {
                 Type matchingRuleType = TypeResolver.ResolveType(TypeName);
                 LifetimeManager lifetime = Lifetime.CreateLifetimeManager();
-                IEnumerable<InjectionMember> injectionMembers =
+                IEnumerable<IInjectionMember> injectionMembers =
                     Injection.SelectMany(
                         element => element.GetInjectionMembers(container, typeof(IMatchingRule), matchingRuleType, Name));
 
