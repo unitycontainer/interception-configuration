@@ -23,7 +23,7 @@ namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration
             else
             {
                 Type handlerType = TypeResolver.ResolveType(TypeName);
-                IEnumerable<IInjectionMember> injectionMembers =
+                IEnumerable<InjectionMember> injectionMembers =
                     Injection.SelectMany(
                         element => element.GetInjectionMembers(container, typeof(ICallHandler), handlerType, Name));
                 policyDefinition.AddCallHandler(handlerType, Lifetime.CreateLifetimeManager(),
