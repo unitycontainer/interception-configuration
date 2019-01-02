@@ -1,14 +1,12 @@
-﻿
-
-using System.Runtime.Remoting;
-using Microsoft.Practices.Unity.Configuration;
+﻿using Microsoft.Practices.Unity.Configuration;
 using Microsoft.Practices.Unity.InterceptionExtension.Configuration.Tests.ConfigFiles;
 using Microsoft.Practices.Unity.InterceptionExtension.Configuration.Tests.TestObjects;
 using Microsoft.Practices.Unity.TestSupport;
 using Microsoft.Practices.Unity.TestSupport.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Runtime.Remoting;
 using Unity;
-using Unity.Interception.ContainerIntegration;
+using Unity.Interception;
 
 namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration.Tests
 {
@@ -97,14 +95,12 @@ namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration.Tests
         [TestMethod]
         public void Then_CanMixDefaultAndNonDefaultInterceptors()
         {
-            IUnityContainer container = this.GetContainer("mixingDefaultAndNonDefaultInterceptors");
+            IUnityContainer container = GetContainer("mixingDefaultAndNonDefaultInterceptors");
 
-            var anonymousWrappable = container.Resolve<Wrappable>();
-            var namedWrappable = container.Resolve<Wrappable>("name");
-            var anonymousWrappableWithProperty
-                = container.Resolve<WrappableWithProperty>();
-            var namedWrappableWithProperty
-                = container.Resolve<WrappableWithProperty>("name");
+            var anonymousWrappable             = container.Resolve<Wrappable>();
+            var namedWrappable                 = container.Resolve<Wrappable>("name");
+            var anonymousWrappableWithProperty = container.Resolve<WrappableWithProperty>();
+            var namedWrappableWithProperty     = container.Resolve<WrappableWithProperty>("name");
 
             Assert.IsTrue(RemotingServices.IsTransparentProxy(anonymousWrappable));
             Assert.IsTrue(RemotingServices.IsTransparentProxy(namedWrappable));

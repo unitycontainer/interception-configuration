@@ -1,19 +1,15 @@
-﻿
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Remoting;
-using Microsoft.Practices.Unity.Configuration;
+﻿using Microsoft.Practices.Unity.Configuration;
 using Microsoft.Practices.Unity.InterceptionExtension.Configuration.Tests.ConfigFiles;
 using Microsoft.Practices.Unity.InterceptionExtension.Configuration.Tests.TestObjects;
 using Microsoft.Practices.Unity.TestSupport;
 using Microsoft.Practices.Unity.TestSupport.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Linq;
+using System.Runtime.Remoting;
 using Unity;
-using Unity.Interception.ContainerIntegration;
+using Unity.Interception;
 using Unity.Interception.InterceptionBehaviors;
-using Unity.Interception.Interceptors.TypeInterceptors.VirtualMethodInterception;
 
 namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration.Tests
 {
@@ -108,12 +104,11 @@ namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration.Tests
         [TestMethod]
         public void Then_CanConfigureDefaultInterceptor()
         {
-            IUnityContainer container = this.ConfiguredContainer("configuringDefaultInterceptor")
-                .Configure<Interception>()
-                    .AddPolicy("all")
-                        .AddMatchingRule<AlwaysMatchingRule>()
-                        .AddCallHandler<GlobalCountCallHandler>()
-                .Container;
+            IUnityContainer container = this.ConfiguredContainer("configuringDefaultInterceptor");
+            container.Configure<Interception>()
+                     .AddPolicy("all")
+                     .AddMatchingRule<AlwaysMatchingRule>()
+                     .AddCallHandler<GlobalCountCallHandler>();
 
             var instance1 = container.Resolve<Wrappable>();
             var instance2 = container.Resolve<Wrappable>("two");

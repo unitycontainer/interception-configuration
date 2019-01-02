@@ -11,6 +11,7 @@ using Unity.Injection;
 using Unity.Interception.Configuration.Properties;
 using Unity.Interception.ContainerIntegration;
 using Unity.Interception.Interceptors;
+using DefaultInterceptor = Unity.Interception.Configuration.DefaultInterceptor;
 
 namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration
 {

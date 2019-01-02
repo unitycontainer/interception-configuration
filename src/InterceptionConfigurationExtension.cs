@@ -1,7 +1,7 @@
 ﻿
 
 using Microsoft.Practices.Unity.Configuration;
-using Unity.Interception.ContainerIntegration;
+using Unity.Interception;
 using Unity.Interception.InterceptionBehaviors;
 using Unity.Interception.Interceptors.InstanceInterceptors.InterfaceInterception;
 using Unity.Interception.Interceptors.TypeInterceptors.VirtualMethodInterception;
