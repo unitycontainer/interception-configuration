@@ -68,7 +68,7 @@ namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration
         }
 
         /// <summary>
-        /// Lifetime manager for this item.
+        /// WithLifetime manager for this item.
         /// </summary>
         [ConfigurationProperty(LifetimePropertyName, IsRequired = false, DefaultValue = null)]
         public LifetimeElement Lifetime

@@ -6,6 +6,7 @@ using Unity;
 using Unity.Injection;
 using Unity.Interception.ContainerIntegration;
 using Unity.Interception.PolicyInjection.MatchingRules;
+using Unity.Lifetime;
 
 namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration
 {
