@@ -69,6 +69,19 @@ namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration.Tests
         }
 
         [TestMethod]
+        [Ignore]
+        public void Then_CanConfigureInterceptorForTypeAndEmptyName()
+        {
+            IUnityContainer container = this.GetContainer("configuringInterceptorForTypeAndEmptyName");
+
+            var anonymous = container.Resolve<Wrappable>();
+            var named = container.Resolve<Wrappable>("name");
+
+            Assert.IsFalse(RemotingServices.IsTransparentProxy(anonymous));
+            Assert.IsTrue(RemotingServices.IsTransparentProxy(named));
+        }
+
+        [TestMethod]
         public void Then_CanConfigureInterceptorForTypeAndName()
         {
             IUnityContainer container = this.GetContainer("configuringInterceptorForTypeAndName");
