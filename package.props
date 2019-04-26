@@ -6,10 +6,10 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <UnityAbstractionsVersion>4.1.*</UnityAbstractionsVersion>
-    <UnityContainerVersion>5.10.*</UnityContainerVersion>
-    <UnityInterceptionVersion>5.10.*</UnityInterceptionVersion>
-    <UnityConfigurationVersion>5.10.*</UnityConfigurationVersion>
+    <UnityAbstractionsVersion>5.11.*</UnityAbstractionsVersion>
+    <UnityContainerVersion>5.11.*</UnityContainerVersion>
+    <UnityInterceptionVersion>5.11.*</UnityInterceptionVersion>
+    <UnityConfigurationVersion>5.11.*</UnityConfigurationVersion>
   </PropertyGroup>
 
 </Project>
