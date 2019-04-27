@@ -102,6 +102,7 @@ namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration.Tests
         }
 
         [TestMethod]
+        [Ignore]
         public void Then_CanConfigureDefaultInterceptor()
         {
             IUnityContainer container = this.ConfiguredContainer("configuringDefaultInterceptor");
