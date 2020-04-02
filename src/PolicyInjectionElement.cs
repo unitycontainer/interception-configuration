@@ -1,7 +1,7 @@
-﻿using Microsoft.Practices.Unity.Configuration;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Unity;
+using Unity.Configuration.Abstractions;
 using Unity.Injection;
 using Unity.Interception.PolicyInjection;
 

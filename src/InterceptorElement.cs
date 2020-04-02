@@ -1,5 +1,4 @@
-﻿using Microsoft.Practices.Unity.Configuration;
-using Microsoft.Practices.Unity.Configuration.ConfigurationHelpers;
+﻿using Microsoft.Practices.Unity.Configuration.ConfigurationHelpers;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -7,6 +6,7 @@ using System.Globalization;
 using System.Threading;
 using System.Xml;
 using Unity;
+using Unity.Configuration.Abstractions;
 using Unity.Injection;
 using Unity.Interception.Configuration.Properties;
 using Unity.Interception.ContainerIntegration;
@@ -82,8 +82,6 @@ namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration
         /// calling this method, so deriving classes only need to write the element content, not
         /// the start or end tags.</remarks>
         /// <param name="writer">Writer to send XML content to.</param>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1062:ValidateArgumentsOfPublicMethods",
-            Justification = "Validation done by Guard class")]
         public override void SerializeContent(XmlWriter writer)
         {
             (writer ?? throw new ArgumentNullException(nameof(writer))).WriteAttributeString(TypeNamePropertyName, this.TypeName);

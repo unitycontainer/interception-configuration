@@ -1,11 +1,8 @@
-﻿
-
+﻿using Microsoft.Practices.Unity.Configuration.ConfigurationHelpers;
 using System.Configuration;
 using System.Xml;
-using Microsoft.Practices.Unity.Configuration;
-using Microsoft.Practices.Unity.Configuration.ConfigurationHelpers;
 using Unity;
-using Unity.Interception.Utilities;
+using Unity.Configuration.Abstractions;
 
 namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration
 {
@@ -81,7 +78,10 @@ namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration
         /// <param name="container">Container to configure.</param>
         protected override void ConfigureContainer(IUnityContainer container)
         {
-            this.Policies.ForEach(policy => policy.ConfigureContainer(container));
+            foreach (var policy in Policies)
+            {
+                policy.ConfigureContainer(container);
+            }
         }
     }
 }

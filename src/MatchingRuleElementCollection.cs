@@ -1,7 +1,6 @@
-﻿
-
+﻿using Microsoft.Practices.Unity.Configuration.ConfigurationHelpers;
 using System.Configuration;
-using Microsoft.Practices.Unity.Configuration.ConfigurationHelpers;
+using Unity.Configuration.Abstractions;
 
 namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration
 {

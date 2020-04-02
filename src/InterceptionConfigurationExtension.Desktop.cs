@@ -1,4 +1,4 @@
-﻿using Microsoft.Practices.Unity.Configuration;
+﻿using Unity.Configuration.Abstractions;
 using Unity.Interception;
 using Unity.Interception.InterceptionBehaviors;
 using Unity.Interception.Interceptors.InstanceInterceptors.InterfaceInterception;

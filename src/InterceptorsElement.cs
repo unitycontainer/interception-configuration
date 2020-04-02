@@ -1,14 +1,8 @@
-﻿
-
-using System;
-using System.Collections.Generic;
+﻿using Microsoft.Practices.Unity.Configuration.ConfigurationHelpers;
 using System.Configuration;
-using System.Linq;
-using System.Text;
 using System.Xml;
-using Microsoft.Practices.Unity.Configuration;
-using Microsoft.Practices.Unity.Configuration.ConfigurationHelpers;
 using Unity;
+using Unity.Configuration.Abstractions;
 
 namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration
 {
