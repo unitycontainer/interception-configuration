@@ -121,6 +121,13 @@ namespace Unity.Interception.Configuration
 
             policies.Set(typeof(ITypeInterceptionPolicy), policy);
         }
+
+        protected override string ToString(bool debug = false)
+        {
+            return GetType().Name;
+        }
+
+        public override bool BuildRequired => false;
     }
 
     /// <summary>
