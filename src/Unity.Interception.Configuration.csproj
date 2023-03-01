@@ -2,9 +2,10 @@
 
   <Import Project="..\package.props" />
 
+  <!-- Defaults -->
+
   <PropertyGroup>
-    <FileVersion>$(Version).0</FileVersion>
-    <AssemblyVersion>$(Version).0</AssemblyVersion>
+	  
     <PackageId>Unity.Interception.Configuration</PackageId>
     <Description>Unity Interception Configuration</Description>
     <Copyright>Copyright © .NET Foundation and Contributors. All Rights Reserved</Copyright>
@@ -19,7 +20,14 @@
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>package.snk</AssemblyOriginatorKeyFile>
     <DelaySign>false</DelaySign>
-    <TargetFrameworks>netstandard2.0;net47;net46;net45;netcoreapp2.0</TargetFrameworks>
+	  
+    <Version>$(VersionMajor).$(VersionMinor).$(VersionPatch)</Version>
+	<VersionBuild Condition="'$(VersionBuild)' == ''">0</VersionBuild>
+	<FileVersion>$(Version).$(VersionBuild)</FileVersion>
+    <AssemblyVersion>$(Version).$(VersionBuild)</AssemblyVersion>
+	<PackageVersion Condition="'$(VersionSuffix)' == ''">$(Version)</PackageVersion>
+    <PackageVersion Condition="'$(VersionSuffix)' != ''">$(Version)-$(VersionSuffix)</PackageVersion>
+	  
   </PropertyGroup>
   
   <ItemGroup>
@@ -28,9 +36,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -63,23 +68,11 @@
   </ItemGroup>
 
   <ItemGroup Condition="!Exists('$(UnityConfiguration)')">
-    <PackageReference Include="Unity.Configuration" Version="$(UnityConfigurationVersion)" />
+    <PackageReference Include="Unity.Configuration" Version="$(VersionMajor).$(VersionMinor).*-*" />
   </ItemGroup>
 
   <ItemGroup Condition="!Exists('$(UnityInterception)')">
-    <PackageReference Include="Unity.Interception" Version="$(UnityInterceptionVersion)" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'net45'">
-    <Reference Include="System.Configuration" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'net46'">
-    <Reference Include="System.Configuration" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'net47'">
-    <Reference Include="System.Configuration" />
+    <PackageReference Include="Unity.Interception" Version="$(VersionMajor).$(VersionMinor).*-*" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'netcoreapp2.0' ">
@@ -98,10 +91,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0">
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
   </ItemGroup>
+
+  <!-- Release Notes -->
+
+  <Target Name="PreparePackageReleaseNotesFromFile" BeforeTargets="GenerateNuspec">
+    <ReadLinesFromFile File="../RELEASE-NOTES.txt">
+      <Output TaskParameter="Lines" ItemName="ReleaseNoteLines" />
+    </ReadLinesFromFile>
+    <PropertyGroup>
+      <PackageReleaseNotes>@(ReleaseNoteLines, '%0a')</PackageReleaseNotes>
+    </PropertyGroup>
+  </Target>
 
 </Project>

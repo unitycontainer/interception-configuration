@@ -1,73 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <Import Project="..\package.props" />
-
   <PropertyGroup>
-    <TargetFramework>net47</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <IsPackable>false</IsPackable>
     <RootNamespace>Unity.Interception.Tests</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
-    <PackageReference Include="MSTest.TestAdapter" Version="2.0.0" />
-    <PackageReference Include="MSTest.TestFramework" Version="2.0.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.5.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="3.0.2" />
+    <PackageReference Include="MSTest.TestFramework" Version="3.0.2" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="ConfigFiles\*.config" />
     <EmbeddedResource Include="ConfigFiles\*.config" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="System.Configuration" />
-  </ItemGroup>
  
   <ItemGroup>
     <ProjectReference Include="..\src\Unity.Interception.Configuration.csproj" />
   </ItemGroup>
-
-
-  <PropertyGroup>
-    <UnityAbstractions>..\..\Abstractions\src\Unity.Abstractions.csproj</UnityAbstractions>
-    <UnityConfiguration>..\..\Configuration\src\Unity.Configuration.csproj</UnityConfiguration>
-    <UnityInterception>..\..\Interception\src\Unity.Interception.csproj</UnityInterception>
-    <UnityContainer>..\..\Container\src\Unity.Container.csproj</UnityContainer>
-  </PropertyGroup>
-  
-
-  <ItemGroup Condition="Exists('$(UnityAbstractions)')">
-    <ProjectReference Include="$(UnityAbstractions)" />
-  </ItemGroup>
-
-  <ItemGroup Condition="Exists('$(UnityConfiguration)')">
-    <ProjectReference Include="$(UnityConfiguration)" />
-  </ItemGroup>
-
-  <ItemGroup Condition="Exists('$(UnityInterception)')">
-    <ProjectReference Include="$(UnityInterception)" />
-  </ItemGroup>
-
-  <ItemGroup Condition="Exists('$(UnityContainer)')">
-    <ProjectReference Include="$(UnityContainer)" />
-  </ItemGroup>
-
-
-  <ItemGroup Condition="!Exists('$(UnityAbstractions)')">
-    <PackageReference Include="Unity.Abstractions" Version="5.11.*" />
-  </ItemGroup>
-
-  <ItemGroup Condition="!Exists('$(UnityConfiguration)')">
-    <PackageReference Include="Unity.Configuration" Version="$(UnityConfigurationVersion)" />
-  </ItemGroup>
-
-  <ItemGroup Condition="!Exists('$(UnityInterception)')">
-    <PackageReference Include="Unity.Interception" Version="$(UnityInterceptionVersion)" />
-  </ItemGroup>
-
-  <ItemGroup Condition="!Exists('$(UnityContainer)')">
-    <PackageReference Include="Unity.Container" Version="$(UnityContainerVersion)" />
-  </ItemGroup>
-
 
 </Project>
