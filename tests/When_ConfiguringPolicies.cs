@@ -3,15 +3,11 @@ using Microsoft.Practices.Unity.TestSupport;
 using Microsoft.Practices.Unity.TestSupport.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
-using System.Linq;
 using Unity;
 using Unity.Interception.ContainerIntegration;
-using Unity.Interception.Interceptors.InstanceInterceptors.TransparentProxyInterception;
+using Unity.Interception.Interceptors.InstanceInterceptors.InterfaceInterception;
 using Unity.Interception.PolicyInjection;
-using Unity.Interception.PolicyInjection.MatchingRules;
-using Unity.Interception.PolicyInjection.Pipeline;
 using Unity.Interception.PolicyInjection.Policies;
-using Unity.Lifetime;
 
 namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration.Tests
 {
@@ -46,120 +42,5 @@ namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration.Tests
             Assert.AreEqual("policyOne", policies[1].Name);
         }
 
-        [TestMethod]
-        public void Then_MatchingRuleInPolicyIsConfigured()
-        {
-            IUnityContainer container = this.GetConfiguredContainer("policyWithGivenRulesAndHandlersTypes");
-
-            GlobalCountCallHandler.Calls.Clear();
-
-            container.RegisterType<Wrappable>("wrappable",
-                new Interceptor<TransparentProxyInterceptor>(),
-                new InterceptionBehavior<PolicyInjectionBehavior>());
-
-            var wrappable1 = container.Resolve<Wrappable>("wrappable");
-            wrappable1.Method2();
-
-            Assert.AreEqual(1, GlobalCountCallHandler.Calls["default"]);
-        }
-
-        [TestMethod]
-        public void Then_RulesAndHandlersCanBeConfiguredExternalToPolicy()
-        {
-            IUnityContainer container
-                = this.GetConfiguredContainer("policyWithExternallyConfiguredRulesAndHandlers");
-
-            GlobalCountCallHandler.Calls.Clear();
-
-            container.RegisterType<Wrappable>("wrappable",
-                new Interceptor<TransparentProxyInterceptor>(),
-                new InterceptionBehavior<PolicyInjectionBehavior>());
-
-            var wrappable1 = container.Resolve<Wrappable>("wrappable");
-            wrappable1.Method2();
-
-            Assert.AreEqual(1, GlobalCountCallHandler.Calls["handler1"]);
-            Assert.AreEqual(1, GlobalCountCallHandler.Calls["handler2"]);
-        }
-
-        [TestMethod]
-        public void Then_RulesAndHandlersCanHaveInjectionConfiguredInPolicyElement()
-        {
-            IUnityContainer container
-                = this.GetConfiguredContainer("policyWithInjectedRulesAndHandlers");
-
-            GlobalCountCallHandler.Calls.Clear();
-
-            container
-                .RegisterType<Wrappable>("wrappable",
-                    new Interceptor<TransparentProxyInterceptor>(),
-                    new InterceptionBehavior<PolicyInjectionBehavior>());
-
-            var wrappable1 = container.Resolve<Wrappable>("wrappable");
-            wrappable1.Method2();
-
-            Assert.AreEqual(1, GlobalCountCallHandler.Calls["handler1"]);
-            Assert.AreEqual(1, GlobalCountCallHandler.Calls["handler2"]);
-        }
-
-        [TestMethod]
-        public void CanSetUpAPolicyWithLifetimeManagedInjectedRulesAndHandlers()
-        {
-            IUnityContainer container
-                = this.GetConfiguredContainer("policyWithLifetimeManagedInjectedRulesAndHandlers");
-
-            GlobalCountCallHandler.Calls.Clear();
-
-            container
-                .RegisterType<Wrappable>("wrappable",
-                    new Interceptor<TransparentProxyInterceptor>(),
-                    new InterceptionBehavior<PolicyInjectionBehavior>());
-
-            Wrappable wrappable1 = container.Resolve<Wrappable>("wrappable");
-            wrappable1.Method2();
-
-            Assert.AreEqual(1, GlobalCountCallHandler.Calls["handler1"]);
-            Assert.AreEqual(1, GlobalCountCallHandler.Calls["handler2"]);
-
-            var matchingRuleRegistrations = container.Registrations.Where(r => r.RegisteredType == typeof(IMatchingRule));
-            var callHandlerRegistrations = container.Registrations.Where(r => r.RegisteredType == typeof(ICallHandler));
-
-            Assert.AreEqual(2, matchingRuleRegistrations.Count());
-            Assert.AreEqual(
-                1,
-                matchingRuleRegistrations.Count(r => r.LifetimeManager?.GetType() == typeof(ContainerControlledLifetimeManager)));
-            Assert.AreEqual(
-                1,
-                matchingRuleRegistrations.Count(r => r.LifetimeManager?.GetType() == typeof(TransientLifetimeManager)));
-
-            Assert.AreEqual(2, callHandlerRegistrations.Count());
-            Assert.AreEqual(
-                1,
-                callHandlerRegistrations.Count(r => r.LifetimeManager?.GetType() == typeof(ContainerControlledLifetimeManager)));
-            Assert.AreEqual(
-                1,
-                callHandlerRegistrations.Count(r => r.LifetimeManager?.GetType() == typeof(TransientLifetimeManager)));
-        }
-
-        [TestMethod]
-        public void Then_RulesAndHandlersInDifferentPoliciesCanHaveTheSameName()
-        {
-            IUnityContainer container
-                = this.GetConfiguredContainer("policyWithDuplicateRuleAndHandlerNames");
-
-            GlobalCountCallHandler.Calls.Clear();
-
-            container
-                .RegisterType<Wrappable>("wrappable",
-                    new Interceptor<TransparentProxyInterceptor>(),
-                    new InterceptionBehavior<PolicyInjectionBehavior>());
-
-            var wrappable1 = container.Resolve<Wrappable>("wrappable");
-            wrappable1.Method2();
-            wrappable1.Method3();
-
-            Assert.AreEqual(1, GlobalCountCallHandler.Calls["Method3Handler"]);
-            Assert.AreEqual(1, GlobalCountCallHandler.Calls["Method2Handler"]);
-        }
     }
 }

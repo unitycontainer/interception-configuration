@@ -56,7 +56,6 @@ namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration
 
             context.AddAlias<VirtualMethodInterceptor>("VirtualMethodInterceptor");
             context.AddAlias<InterfaceInterceptor>("InterfaceInterceptor");
-            context.AddAlias<TransparentProxyInterceptor>("TransparentProxyInterceptor");
 
             context.AddAlias<IInterceptionBehavior>("IInterceptionBehavior");
             context.AddAlias<PolicyInjectionBehavior>("PolicyInjectionBehavior");

@@ -101,54 +101,5 @@ namespace Microsoft.Practices.Unity.InterceptionExtension.Configuration.Tests
             Assert.AreEqual(1, callCount.CallCount);
         }
 
-        [TestMethod]
-        [Ignore]
-        public void Then_CanConfigureDefaultInterceptor()
-        {
-            IUnityContainer container = this.ConfiguredContainer("configuringDefaultInterceptor");
-            container.Configure<Interception>()
-                     .AddPolicy("all")
-                     .AddMatchingRule<AlwaysMatchingRule>()
-                     .AddCallHandler<GlobalCountCallHandler>();
-
-            var instance1 = container.Resolve<Wrappable>();
-            var instance2 = container.Resolve<Wrappable>("two");
-
-            Assert.IsTrue(RemotingServices.IsTransparentProxy(instance1));
-            Assert.IsTrue(RemotingServices.IsTransparentProxy(instance2));
-        }
-
-        [TestMethod]
-        public void Then_CanAddInterfaceThroughConfiguredBehavior()
-        {
-            IUnityContainer container = this.ConfiguredContainer("addingInterfacesImplicitlyThroughBehavior");
-
-            var instance = container.Resolve<Interceptable>();
-            Assert.IsNotNull(instance as IAdditionalInterface);
-        }
-
-        [TestMethod]
-        public void Then_CanAddInterfaceThroughExplicitConfiguration()
-        {
-            IUnityContainer container = this.ConfiguredContainer("addingInterfacesExplicitlyWithBehavior");
-
-            var instance = container.Resolve<Interceptable>();
-            Assert.IsNotNull(instance as IAdditionalInterface);
-        }
-
-        [TestMethod]
-        public void Then_MultipleBehaviorsCanBeConfigured()
-        {
-            var container = this.ConfiguredContainer("multipleBehaviorsOnOneRegistration");
-            var instance = container.Resolve<Interceptable>();
-
-            instance.DoSomething();
-
-            var countHandler = (CallCountInterceptionBehavior)container.Resolve<IInterceptionBehavior>("fixed");
-
-            Assert.AreEqual(1, countHandler.CallCount);
-
-            Assert.IsNotNull(instance as IAdditionalInterface);
-        }
     }
 }
